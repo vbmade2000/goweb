@@ -7,7 +7,7 @@ Goweb depends on [Gin](https://github.com/gin-gonic/gin) and [Melody](https://gi
 go get github.com/gin-gonic/gin github.com/olahol/melody
 git clone https://github.com/inoriy/goweb
 cd goweb
-go build main.go -o goweb
+go build -o goweb main.go
 ```
 
 ### Usage
