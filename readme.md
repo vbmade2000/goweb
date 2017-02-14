@@ -11,8 +11,12 @@ go build -o goweb main.go
 ```
 
 ### Usage
-Run the executable and point a browser to `localhost:3000`
+Run the `start.sh` script and point a browser to `localhost:3000`. Alternatively, to run in debug mode, you can call the execuatable directly.
 
 ```
+# production
+./start.sh
+
+# dev/debug
 ./goweb
 ```

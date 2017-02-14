@@ -16,13 +16,12 @@
 
 	// message box keylistener
 	text.onkeydown=function(e){
-		// if the key pressed was enter and the message box
-		// value is not an empty string
+		// if the key pressed was enter and the message is valid
 		if(e.keyCode===13&&text.value!=""){
 			// send alias + message to websocket handler
 			ws.send("<"+(alias.value||'guest')+">: "+text.value);
 			// reset message box
 			text.value="";
 		}
-	}
+	};
 })();

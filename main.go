@@ -1,3 +1,10 @@
+/*
+ * Goweb chat demo for Gin + Melody
+ *
+ * compile with 'go build -o goweb main.go' and
+ * run with './goweb'
+ */
+
 // package declaration
 package main
 
@@ -17,19 +24,19 @@ func main(){
 	router.Static("/public","static/public")
 
 	// root route ('/')
-	router.GET("/",func(c *gin.Context){
+	router.GET("/",func(ctx *gin.Context){
 		// serve a static HTML file
-		http.ServeFile(c.Writer,c.Request,"static/index.html")
+		http.ServeFile(ctx.Writer,ctx.Request,"static/index.html")
 	})
 
 	// websocket route
-	router.GET("/ws",func(c *gin.Context){
+	router.GET("/ws",func(ctx *gin.Context){
 		// handle request with Melody
-		mel.HandleRequest(c.Writer,c.Request)
+		mel.HandleRequest(ctx.Writer,ctx.Request)
 	})
 
 	// Melody message handler
-	mel.HandleMessage(func(s *melody.Session,msg []byte){
+	mel.HandleMessage(func(ses *melody.Session,msg []byte){
 		// broadcast message to connected sockets
 		mel.Broadcast(msg)
 	})
